@@ -18,22 +18,24 @@ Then run `frankentest` to start an agent - it'll listen on `/tmp/frankentest-age
 
 If you're using the node client, install via `npm install --save frankentest`. It can hook into your test framework's setup and teardown methods. This example uses `mocha`:
 
-    describe("ProjectApi",function() {
+```javascript
+describe("ProjectApi",function() {
 
-      beforeEach(fixme.setup) // clean set of fixtures
-      afterEach(fixme.teardown)
-      after(fixme.finish) // tell the agent it can listen for other connections
+  beforeEach(fixme.setup) // clean set of fixtures
+  afterEach(fixme.teardown)
+  after(fixme.finish) // tell the agent it can listen for other connections
 
-      it("can return all projects",function(done) {
-        projects
-          .all()
-          .then(function(projects) {
-            assert.equal(24,projects.length)
-          },function(err) {
-            fail(err)
-          })
+  it("can return all projects",function(done) {
+    projects
+      .all()
+      .then(function(projects) {
+        assert.equal(24,projects.length)
+      },function(err) {
+        fail(err)
       })
-    })
+  })
+})
+```
 
 ## Protocol
 
