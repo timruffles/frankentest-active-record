@@ -1,0 +1,33 @@
+{
+  "name": "frankentest",
+  "version": "0.0.0",
+  "description": "node agent for frankentest - control rails fixtures via IPC for polyglot applications",
+  "main": "node-client/fixme.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timruffles/frankentest-active-record.git"
+  },
+  "files": [
+    "node-client/fixme.js"
+  ],
+  "keywords": [
+    "rails",
+    "fixtures",
+    "active-record",
+    "testing"
+  ],
+  "author": "Tim Ruffles <oi@truffles.me.uk>",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/timruffles/frankentest-active-record/issues"
+  },
+  "dependencies": {
+    "event-stream": "~3.0.16"
+  },
+  "devDependencies": {
+    "mocha": "~1.14.0"
+  }
+}
