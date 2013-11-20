@@ -12,7 +12,7 @@ Add frankentest to your `Gemfile` - probably in the testing group.
 
   gem 'frankentest'
 
-Then run `frankentest` to start an agent - it'll listen on `/tmp/frankentest-agent` by default but you can pass a different path as `--socket-path`.
+Then run `frankentest` to start an agent - it'll listen on `/tmp/frankentest-agent` by default but you can pass a different path as `--socket-path`. The frankentest executable isn't doing much magic, so it should be easy to customise for your needs.
 
 ### Node side
 

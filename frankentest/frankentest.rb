@@ -13,9 +13,7 @@ class TestAgent
   end
   def runner
     return @runner if @runner
-    Runner.fixture_path = path
-    Runner.fixtures :all
-    @runner = Runner.new
+    @runner = Runner.create_runner path
     @runner
   end
   def setup
@@ -26,17 +24,24 @@ class TestAgent
   end
 end
 
-require "active_record"
-class Runner < ActiveSupport::TestCase
-  include ActiveRecord::TestFixtures
-  def initialize
+module Runner
+  def self.create_runner path
+    require "active_record"
+    runner = Class.new(ActiveSupport::TestCase) do
+      include ActiveRecord::TestFixtures
+      def initialize
+      end
+      def self.setup _
+      end
+      def self.teardown _
+      end
+      self.pre_loaded_fixtures = false
+      self.use_instantiated_fixtures  = false
+    end
+    runner.fixture_path = path
+    runner.fixtures :all
+    runner.new
   end
-  def self.setup _
-  end
-  def self.teardown _
-  end
-  self.pre_loaded_fixtures = false
-  self.use_instantiated_fixtures  = false
 end
 
 class UnixSocketIpc
